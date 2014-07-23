@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+	<metadata>
+		<id>Metrics.Log4Net</id>
+		<version>0.1.9</version>
+		<title>Metrics.Log4Net</title>
+		<authors>nazariy.kotylo</authors>
+		<owners>Nazariy Kotylo</owners>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>The library provides support for integrating Log4Net with the Metrics.NET Library</description>
+		<summary>Log4Net adapter for Metrics.NET</summary>
+		<copyright>Nazariy Kotylo</copyright>
+		<projectUrl>https://github.com/nkot/Metrics.Log4Net</projectUrl>
+		<licenseUrl>https://github.com/nkot/Metrics.Log4Net/blob/master/LICENSE</licenseUrl>
+		<tags>log4net, metrics, measurements, charts, timer, histogram, duration, graphite, health checks</tags>
+		<dependencies>
+			<dependency id="Metrics.NET" version="0.1.9" />
+			<dependency id="Log4Net" version="0.23.0" />
+		</dependencies>
+	</metadata>
+	<files>
+		<file src="lib\net45\Metrics.Log4Net.dll" target="lib\net45\Metrics.Log4Net.dll" />
+		<file src="lib\net45\Metrics.Log4Net.pdb" target="lib\net45\Metrics.Log4Net.pdb" />
+		<file src="lib\net45\Metrics.Log4Net.XML" target="lib\net45\Metrics.Log4Net.XML" />
+		<file src="lib\net45\Metrics.Log4Net.config" target="lib\net45\Metrics.Log4Net.config" />
+	</files>
+</package>
