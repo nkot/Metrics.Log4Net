@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
 	<metadata>
 		<id>Metrics.Log4Net</id>
-		<version>0.1.9</version>
+		<version>0.1.11</version>
 		<title>Metrics.Log4Net</title>
 		<authors>nazariy.kotylo</authors>
 		<owners>Nazariy Kotylo</owners>
