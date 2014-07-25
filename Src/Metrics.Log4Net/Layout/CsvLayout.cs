@@ -37,7 +37,7 @@ namespace Metrics.Log4Net.Layout
                 var value = loggingEvent.LookupProperty(col.LoggingEventPropertyKey);
                 lineBuilder.AppendFormat("{0}{1}", value, CsvDelimiter.Delimiter);
             }
-            writer.WriteLineAsync(lineBuilder.ToString());
+            writer.WriteLine(lineBuilder.ToString());
         }
     }
 }

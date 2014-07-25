@@ -12,7 +12,9 @@ namespace Metrics.Log4Net.Tests
         {
             directoryInfo = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + @"\LogTests");
 
-            DefaultLog4NetConfiguration.ConfigureAndWatch(directoryInfo.FullName);
+            new MetricsLog4NetConfiguration()
+                .SetLogDirectory(directoryInfo.FullName)
+                .UseDefaultConfiguration();
         }
 
         public string LogsDirectory

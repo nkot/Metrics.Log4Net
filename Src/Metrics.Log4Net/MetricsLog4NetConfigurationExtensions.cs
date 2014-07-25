@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
-using Metrics.Log4Net;
+using System.IO;
+using System.Reflection;
 using Metrics.Log4Net.Layout;
 
 namespace Metrics
@@ -31,13 +32,38 @@ namespace Metrics
         /// <summary>
         /// Metrics.Log4Net loads configuration and watches for changes in Metrics.Log4Net.config file
         /// </summary>
-        /// <remarks>Note that <see cref="WithCustomCsvDelimiter"/> should be called before calling this method as Log4Net immediately will create header with default CSV delimiter.</remarks>
-        public static MetricsLog4NetConfiguration WithDefaultConfigFile(this MetricsLog4NetConfiguration configuration, string logDirectory = @".\Logs\")
+        public static MetricsLog4NetConfiguration ConfigureAndWatch(this MetricsLog4NetConfiguration configuration, FileInfo fileInfo)
         {
-            DefaultLog4NetConfiguration.ConfigureAndWatch(logDirectory);
+            if (!fileInfo.Exists)
+            {
+                throw new FileNotFoundException(fileInfo.FullName);
+            }
+
+            log4net.Config.XmlConfigurator.ConfigureAndWatch(fileInfo);
 
             return configuration;
         }
 
+        public static MetricsLog4NetConfiguration SetLogDirectory(this MetricsLog4NetConfiguration configuration, string directory)
+        {
+            log4net.GlobalContext.Properties["Metrics.Log4Net.LogDirectory"] = directory;
+
+            return configuration;
+        }
+
+        public static MetricsLog4NetConfiguration UseDefaultConfiguration(this MetricsLog4NetConfiguration configuration)
+        {
+            if (String.IsNullOrEmpty(log4net.GlobalContext.Properties["Metrics.Log4Net.LogDirectory"] as string))
+            {
+                throw new InvalidOperationException("Make sure you have executed SetLogDirectory before calling this method.");
+            }
+
+            var assembly = Assembly.GetExecutingAssembly();
+            const string resourceName = "Metrics.Log4Net.Metrics.Log4Net.config";
+
+            log4net.Config.XmlConfigurator.Configure(assembly.GetManifestResourceStream(resourceName));
+
+            return configuration;
+        }
     }
 }

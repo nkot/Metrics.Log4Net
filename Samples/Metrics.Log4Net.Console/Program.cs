@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Metrics.Log4Net.Console
 {
@@ -12,7 +13,9 @@ namespace Metrics.Log4Net.Console
                 .WithReporting(config => config
                     .WithMetricsLog4NetConfiguration(new MetricsLog4NetConfiguration()
                         .WithRegionalCsvDelimiter()
-                        .WithDefaultConfigFile())
+                        .SetLogDirectory(@".\metrics\")
+                        .UseDefaultConfiguration()
+                        )
                     .WithLog4NetCsvReports(TimeSpan.FromSeconds(5))
                     .WithLog4NetTextReports(TimeSpan.FromSeconds(5))
                     .WithConsoleReport(TimeSpan.FromSeconds(5))

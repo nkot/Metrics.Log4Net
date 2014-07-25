@@ -52,12 +52,12 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="DefaultLog4NetConfiguration.cs" />
     <Compile Include="Layout\CsvColumn.cs" />
     <Compile Include="Layout\CsvCounterLayout.cs" />
     <Compile Include="Layout\CsvDelimiter.cs" />
@@ -80,9 +80,7 @@
     <Compile Include="Appenders\RealLog4NetLoggerProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Metrics.Log4Net.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <EmbeddedResource Include="Metrics.Log4Net.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
