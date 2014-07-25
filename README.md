@@ -17,19 +17,23 @@ Supported runtimes: .Net 4.5
 
 ### Quick Usage Sample
 ```csharp
- Metric.Config
+            Metric.Config
                 .WithReporting(config => config
                     .WithMetricsLog4NetConfiguration(new MetricsLog4NetConfiguration()
                         .WithRegionalCsvDelimiter()
-                        .WithDefaultConfigFile())
+                        .SetLogDirectory(@".\metrics\")
+                        .UseDefaultConfiguration()
+                        )
                     .WithLog4NetCsvReports(TimeSpan.FromSeconds(5))
-                    .WithLog4NetTextReports(TimeSpan.FromSeconds(5))
                 );
 ```
 
+### Download
+NuGet package - [Metrics.Log4Net](https://www.nuget.org/packages/Metrics.Log4Net/)
+
 ### TODO
 
-> -    Deploy to NuGet
+> -    [done] Deploy to NuGet
 > -    Write tests for text file reporter
 > -    Write more documentation
 
