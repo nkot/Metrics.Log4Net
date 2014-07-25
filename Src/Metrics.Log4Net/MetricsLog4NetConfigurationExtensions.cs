@@ -21,16 +21,19 @@ namespace Metrics
         /// <summary>
         /// Configures Metrics.Log4Net to use custom CSV delimiter
         /// </summary>
+        /// <param name="configuration"></param>
+        /// <param name="csvDelimiter">CSV delimiter, such as , or ;</param>
         public static MetricsLog4NetConfiguration WithCustomCsvDelimiter(this MetricsLog4NetConfiguration configuration, string csvDelimiter)
         {
             if (csvDelimiter == null) throw new ArgumentNullException("csvDelimiter");
+
             CsvDelimiter.SetDelimiter(csvDelimiter);
 
             return configuration;
         }
 
         /// <summary>
-        /// Metrics.Log4Net loads configuration and watches for changes in Metrics.Log4Net.config file
+        /// Configures log4net using the file specified, monitors the file for changes and reloads the configuration if a change is detected.
         /// </summary>
         public static MetricsLog4NetConfiguration ConfigureAndWatch(this MetricsLog4NetConfiguration configuration, FileInfo fileInfo)
         {
@@ -44,6 +47,12 @@ namespace Metrics
             return configuration;
         }
 
+        /// <summary>
+        /// Specifies directory parameter for embedded Log4net config file (<see cref="UseDefaultConfiguration"/>)
+        /// </summary>
+        /// <param name="configuration"></param>
+        /// <param name="directory">directory where metrics report will be written to, like .\metrics\ </param>
+        /// <returns></returns>
         public static MetricsLog4NetConfiguration SetLogDirectory(this MetricsLog4NetConfiguration configuration, string directory)
         {
             log4net.GlobalContext.Properties["Metrics.Log4Net.LogDirectory"] = directory;
@@ -51,6 +60,10 @@ namespace Metrics
             return configuration;
         }
 
+        /// <summary>
+        /// Configures log4net to use default embedded configuration (each metric type will have 10 Rolling Files x 10 MB each).
+        /// </summary>
+        /// <remarks>Make sure you have set log directory <see cref="SetLogDirectory"></see> before calling this method</remarks>
         public static MetricsLog4NetConfiguration UseDefaultConfiguration(this MetricsLog4NetConfiguration configuration)
         {
             if (String.IsNullOrEmpty(log4net.GlobalContext.Properties["Metrics.Log4Net.LogDirectory"] as string))

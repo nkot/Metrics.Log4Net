@@ -8,7 +8,9 @@ namespace Metrics
 {
     public static class Log4NetReportsConfigExtensions
     {
-
+        /// <summary>
+        /// Configures Metrics.Log4Net with settings defined in <see cref="MetricsLog4NetConfiguration"/>
+        /// </summary>
         public static MetricsReports WithMetricsLog4NetConfiguration(this MetricsReports reports, MetricsLog4NetConfiguration log4NetConfig)
         {
             if (log4NetConfig == null) throw new ArgumentNullException("log4NetConfig");
