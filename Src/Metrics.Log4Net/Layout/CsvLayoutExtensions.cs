@@ -69,7 +69,7 @@ namespace Metrics.Log4Net.Layout
             AddDateColumns(layout);
             layout.Columns.Add(new CsvColumn("Last", "Last"));
             layout.Columns.Add(new CsvColumn("Min", "Min"));
-            layout.Columns.Add(new CsvColumn("Max", "Unit"));
+            layout.Columns.Add(new CsvColumn("Max", "Max"));
             layout.Columns.Add(new CsvColumn("Mean", "Mean"));
             layout.Columns.Add(new CsvColumn("StdDev", "StdDev"));
             layout.Columns.Add(new CsvColumn("Median", "Median"));
