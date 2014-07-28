@@ -31,6 +31,9 @@ Supported runtimes: .Net 4.5
 ### Download
 NuGet package - [Metrics.Log4Net](https://www.nuget.org/packages/Metrics.Log4Net/)
 
+### Documentation
+Look at [wiki](https://github.com/nkot/Metrics.Log4Net/wiki) pages
+
 ### TODO
 
 > -    [done] Deploy to NuGet
