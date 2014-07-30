@@ -6,12 +6,13 @@ using log4net.Core;
 
 namespace Metrics.Log4Net.Appenders
 {
-    public class Log4NetCsvAppender: Metrics.Reporters.CSVFileAppender
+    public class Log4NetCsvAppender: Metrics.Reporters.CSVAppender
     {
         private readonly ILoggerProvider loggerProvider;
         private readonly ILoggingEventMapper loggingEventMapper;
 
-        public Log4NetCsvAppender(ILoggerProvider loggerProvider, ILoggingEventMapper loggingEventMapper):base("metrics", CsvDelimiter.Delimiter)
+        public Log4NetCsvAppender(ILoggerProvider loggerProvider, ILoggingEventMapper loggingEventMapper)
+            : base(CsvDelimiter.Delimiter)
         {
             this.loggerProvider = loggerProvider;
             this.loggingEventMapper = loggingEventMapper;

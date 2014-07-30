@@ -39,7 +39,7 @@
     </Reference>
     <Reference Include="Metrics, Version=0.1.9.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Metrics.NET.0.1.9\lib\net45\Metrics.dll</HintPath>
+      <HintPath>..\..\packages\Metrics.NET.0.1.10\lib\net45\Metrics.dll</HintPath>
     </Reference>
     <Reference Include="Moq">
       <HintPath>..\..\packages\Moq.3.1.416.3\lib\Moq.dll</HintPath>
