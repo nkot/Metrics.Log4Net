@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using Metrics.MetricData;
 using Metrics.Reporters;
 using System.IO;
 using log4net;
@@ -25,10 +26,10 @@ namespace Metrics.Log4Net
             base.ReportGauge(name, value, unit);
         }
 
-        protected override void ReportCounter(string name, long value, Unit unit)
+        protected override void ReportCounter(string name, CounterValue value, Unit unit)
         {
-            this.metricName = name;
-            base.ReportCounter(name, value, unit);
+          this.metricName = name;
+          base.ReportCounter(name, value, unit);
         }
 
         protected override void ReportMeter(string name, MeterValue value, Unit unit, TimeUnit rateUnit)

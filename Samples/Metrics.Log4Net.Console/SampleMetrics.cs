@@ -7,16 +7,15 @@ namespace Metrics.Log4Net.Console
 {
     public class SampleMetrics
     {
-
-        private readonly Counter totalRequestsCounter = Metric.Counter<SampleMetrics>("Requests", Unit.Requests);
+        private readonly Counter totalRequestsCounter = Metric.Counter("Requests", Unit.Requests);
 
         private readonly Counter concurrentRequestsCounter = Metric.Counter("SampleMetrics.ConcurrentRequests", Unit.Requests);
 
-        private readonly Histogram histogramOfData = Metric.Histogram<SampleMetrics>("ResultsExample", Unit.Items, SamplingType.LongTerm);
+        private readonly Histogram histogramOfData = Metric.Histogram("ResultsExample", Unit.Items, SamplingType.LongTerm);
 
-        private readonly Meter meter = Metric.Meter<SampleMetrics>("Requests", Unit.Requests);
+        private readonly Meter meter = Metric.Meter("Requests", Unit.Requests);
 
-        private readonly Timer timer = Metric.Timer<SampleMetrics>("Requests", Unit.Requests, SamplingType.FavourRecent, TimeUnit.Seconds, TimeUnit.Milliseconds);
+        private readonly Timer timer = Metric.Timer("Requests", Unit.Requests, SamplingType.FavourRecent, TimeUnit.Seconds, TimeUnit.Milliseconds);
 
         private double someValue = 1;
 
