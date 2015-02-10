@@ -9,11 +9,11 @@ namespace Metrics.Log4Net.Appenders
 
         public string MetricName { get; set; }
 
-        public IEnumerable<CSVReporter.Value> Values { get; set; }
+        public IEnumerable<CSVReport.Value> Values { get; set; }
 
         public MetricsData()
         {
-            Values = new List<CSVReporter.Value>();
+            Values = new List<CSVReport.Value>();
         }
     }
 }

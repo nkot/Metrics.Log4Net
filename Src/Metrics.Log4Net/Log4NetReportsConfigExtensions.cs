@@ -19,16 +19,16 @@ namespace Metrics
         }
 
         /// <summary>
-        /// Write CSV Metrics Reports using Log4Net. 
+        /// Write CSV Metrics Report using Log4Net. 
         /// </summary>
         /// <param name="reports">Instance to configure</param>
         /// <param name="interval">Interval at which to report values</param>
         /// <returns>Same Reports instance for chaining</returns>
-        public static MetricsReports WithLog4NetCsvReports(this MetricsReports reports, TimeSpan interval)
+        public static MetricsReports WithLog4NetCsvReport(this MetricsReports reports, TimeSpan interval)
         {
             if (reports == null) throw new ArgumentNullException("reports");
-
-            reports.WithReporter("Log4Net CSV Report", () => new CSVReporter(new Log4NetCsvAppender(new RealLog4NetLoggerProvider(), new LoggingEventMapper())), interval);
+          
+            reports.WithReport(new CSVReport(new Log4NetCsvAppender(new RealLog4NetLoggerProvider(), new LoggingEventMapper())), interval);
 
             return reports;
         }
@@ -40,11 +40,11 @@ namespace Metrics
         /// <param name="reports">Instance to configure</param>
         /// <param name="interval">Interval at which to report values</param>
         /// <returns>Same Reports instance for chaining</returns>
-        public static MetricsReports WithLog4NetTextReports(this MetricsReports reports, TimeSpan interval)
+        public static MetricsReports WithLog4NetTextReport(this MetricsReports reports, TimeSpan interval)
         {
             if (reports == null) throw new ArgumentNullException("reports");
 
-            reports.WithReporter("Log4Net Text Report", () => new Log4NetTextReporter(), interval);
+            reports.WithReport(new Log4NetTextReporter(), interval);
             return reports;
         }
     }

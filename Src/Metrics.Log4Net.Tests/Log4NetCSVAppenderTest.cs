@@ -19,7 +19,7 @@ namespace Metrics.Log4Net.Tests
 
             logger.Setup(x => x.IsEnabledFor(Level.Info)).Returns(false);
 
-            sut.AppendLine(DateTime.Now, "MetricType", "MetricName", new List<CSVReporter.Value>());
+            sut.AppendLine(DateTime.Now, "MetricType", "MetricName", new List<CSVReport.Value>());
 
             logger.Verify(x => x.Log(It.IsAny<LoggingEvent>()), Times.Never());
         }
@@ -32,7 +32,7 @@ namespace Metrics.Log4Net.Tests
             logger.Setup(x => x.IsEnabledFor(Level.Info)).Returns(true);
             loggingEventMapper.Setup(x => x.MapToLoggingEvent(It.IsAny<string>(), It.IsAny<DateTime>(), It.IsAny<MetricsData>())).Returns(new LoggingEvent(new LoggingEventData()));
 
-            sut.AppendLine(DateTime.Now, "MetricType", "MetricName", new List<CSVReporter.Value>());
+            sut.AppendLine(DateTime.Now, "MetricType", "MetricName", new List<CSVReport.Value>());
 
             logger.Verify(x => x.Log(It.IsAny<LoggingEvent>()));
         }
@@ -47,7 +47,7 @@ namespace Metrics.Log4Net.Tests
             var actualLoggingEvent = new LoggingEvent(new LoggingEventData());
             loggingEventMapper.Setup(x => x.MapToLoggingEvent(logger.Object.Name, It.IsAny<DateTime>(), It.IsAny<MetricsData>())).Returns(actualLoggingEvent);
 
-            sut.AppendLine(DateTime.Now, "Timer", "SomeTimerMetric", new List<CSVReporter.Value> { new CSVReporter.Value("Count", 1) });
+            sut.AppendLine(DateTime.Now, "Timer", "SomeTimerMetric", new List<CSVReport.Value> { new CSVReport.Value("Count", 1) });
 
             logger.Verify(x => x.Log(actualLoggingEvent));
         }

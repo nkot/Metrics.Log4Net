@@ -16,8 +16,8 @@ namespace Metrics.Log4Net.Console
                         .SetLogDirectory(@".\metrics\")
                         .ConfigureAndWatch(new FileInfo(AppDomain.CurrentDomain.BaseDirectory + @"\Metrics.Log4Net.config"))                         //or .UseDefaultConfiguration()
                         )
-                    .WithLog4NetCsvReports(TimeSpan.FromSeconds(5))
-                    .WithLog4NetTextReports(TimeSpan.FromSeconds(5))
+                    .WithLog4NetCsvReport(TimeSpan.FromSeconds(5))
+                    .WithLog4NetTextReport(TimeSpan.FromSeconds(5))
                     .WithConsoleReport(TimeSpan.FromSeconds(5))
                 );
 

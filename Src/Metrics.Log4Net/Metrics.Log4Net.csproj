@@ -47,9 +47,9 @@
     <Reference Include="log4net">
       <HintPath>..\..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Metrics, Version=0.2.8.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Metrics, Version=0.2.14.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Metrics.NET.0.2.8\lib\net45\Metrics.dll</HintPath>
+      <HintPath>..\..\packages\Metrics.NET.0.2.14\lib\net45\Metrics.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -81,7 +81,9 @@
     <Compile Include="Appenders\RealLog4NetLoggerProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Metrics.Log4Net.config" />
+    <EmbeddedResource Include="Metrics.Log4Net.config">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

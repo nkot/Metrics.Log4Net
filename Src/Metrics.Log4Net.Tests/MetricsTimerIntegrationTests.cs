@@ -19,7 +19,7 @@ namespace Metrics.Log4Net.Tests
                        .SetLogDirectory(@".\" + GetType().Name + @"\")
                        .UseDefaultConfiguration()
                        )
-                   .WithLog4NetCsvReports(TimeSpan.FromMilliseconds(1))
+                   .WithLog4NetCsvReport(TimeSpan.FromMilliseconds(1))
                );
 
              using (Metric.Timer("Sample", Unit.None).NewContext())

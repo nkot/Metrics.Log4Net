@@ -18,7 +18,7 @@ namespace Metrics.Log4Net.Appenders
             this.loggingEventMapper = loggingEventMapper;
         }
 
-        public override void AppendLine(DateTime timestamp, string metricType, string metricName, IEnumerable<CSVReporter.Value> values)
+        public override void AppendLine(DateTime timestamp, string metricType, string metricName, IEnumerable<CSVReport.Value> values)
         {
             var metricsData = new MetricsData { MetricType = metricType, MetricName = metricName, Values = values };
 

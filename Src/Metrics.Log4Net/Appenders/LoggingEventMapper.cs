@@ -14,7 +14,7 @@ namespace Metrics.Log4Net.Appenders
             if (loggerName == null) throw new ArgumentNullException("loggerName");
             if (metricsData == null) throw new ArgumentNullException("metricsData");
 
-            var listOfValues = metricsData.Values as IList<CSVReporter.Value> ?? metricsData.Values.ToList();
+            var listOfValues = metricsData.Values as IList<CSVReport.Value> ?? metricsData.Values.ToList();
 
             var logEvent = new LoggingEvent(new LoggingEventData
               {

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
 	<metadata>
 		<id>Metrics.Log4Net</id>
-		<version>0.1.14</version>
+		<version>0.2.14</version>
 		<title>Metrics.Log4Net</title>
 		<authors>nazariy.kotylo</authors>
 		<owners>Nazariy Kotylo</owners>
@@ -14,7 +14,7 @@
 		<licenseUrl>https://github.com/nkot/Metrics.Log4Net/blob/master/LICENSE</licenseUrl>
 		<tags>log4net, metrics, measurements, charts, timer, histogram, duration, graphite, health checks</tags>
 		<dependencies>
-			<dependency id="Metrics.NET" version="0.2.8" />
+			<dependency id="Metrics.NET" version="0.2.14" />
 			<dependency id="Log4Net" version="2.0.3" />
 		</dependencies>
 	</metadata>

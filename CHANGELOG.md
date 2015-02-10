@@ -1,3 +1,6 @@
+###0.2.14 / 2015-02-10
+* Updated NuGet Metrics.Net dependency to latest metrics.net version (0.2.14)
+
 ###0.1.14 / 2014-11-03
 * Updated NuGet Metrics.Net dependency to latest metrics.net version (0.2.8)
 

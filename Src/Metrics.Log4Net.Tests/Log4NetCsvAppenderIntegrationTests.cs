@@ -29,7 +29,7 @@ namespace Metrics.Log4Net.Tests
                 var sut = new Log4NetCsvAppender(new RealLog4NetLoggerProvider(), new LoggingEventMapper());
                 for (int i = 0; i < 100000; i++) // > 10 Mb
                 {
-                    sut.AppendLine(DateTime.Now, metricType, metricName, new List<CSVReporter.Value>());
+                    sut.AppendLine(DateTime.Now, metricType, metricName, new List<CSVReport.Value>());
                 }
                 LogManager.ShutdownRepository();
 
